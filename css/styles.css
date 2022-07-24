@@ -103,8 +103,64 @@ b {
   font-weight: bold;
   padding: 10px 19px;
   display: block;
+  position: relative;
 }
 
+
+.header-content nav ul li .link-item:before,
+.header-content nav ul li .link-item:after{
+content:"";
+position: absolute;
+border-style: solid; 
+left: 0;
+top:0; 
+transition: transform 0.2s;
+}
+
+.header-content nav ul li .link-item:before{
+    border-width: 0 2px;
+    height: 100%; 
+    width: 95%;
+    transform: scale3d(1,0,1);
+}
+
+.header-content nav ul li .link-item:hover:before{
+ transform: scale3d(1,1,1);
+}
+
+.header-content nav ul li .link-item:after{
+border-width: 2px 0;
+height: 91%; 
+width: 98%;
+transform: scale3d(0,1,1);
+transform-origin: left;
+}
+
+.header-content nav ul li .link-item:hover:after{
+ transform: scale3d(1,1,1);
+ transition-delay: .2s;
+}
+
+.header-content .icons ul li  {
+    padding: 10px ;
+    font-weight: bold;
+}
+
+.header-content .icons ul li:last-child i {
+ position: relative;
+ margin-right: 11px;
+}
+
+.header-content .icons ul li:last-child i::after{
+    position: absolute;
+    content: "0";
+    background-color: #7b5244;
+    color: #fff;
+    border-radius: 50%;
+    padding: 4px;
+    font-size: 13px;
+    bottom: -4px;
+}
 /************************************************ 2.1.1 DROPDOWN **********************************************/
 
 .dropdown {
@@ -169,7 +225,7 @@ section.banner img {
 .category-item .icon {
   width: 30px;
   height: 30px;
-  background-color: brown;
+  background-color: #7b5244;
   color: #fff;
   text-align: center;
   display: block;
@@ -349,6 +405,20 @@ section.banner img {
   margin: 10px 20px;
 }
 
+.list-product > li:after {
+  content: "";
+  width: 0;
+  height: 2px;
+  display: block;
+  background-color: #7b5244;
+  margin-top: 2px;
+  transition: 0.5s;
+}
+
+.list-product > li:hover:after {
+  width: 100%;
+}
+
 .products-items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -385,6 +455,7 @@ section.banner img {
   background-color: #7b5244;
   display: inline-block;
   text-align: center;
+  cursor: pointer;
 }
 
 .product-overlay ul li i {
@@ -396,8 +467,8 @@ section.banner img {
   transform: scalex(1);
 }
 
-.product-item i.active {
-  color: yellow;
+.product-item i.active{
+  color: black;
 }
 
 .product-info span {
